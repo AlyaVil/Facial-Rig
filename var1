@@ -1,0 +1,53 @@
+const MODEL_HEIGHT = 40;
+
+var canvas;
+var myFont;
+var drawEdges = false;
+var drawControls = true;
+var controls = [];
+var blendMeshes = {};
+
+var meshes = {
+	normal: null,
+	hair: null,
+	brows: null,
+	eyes: null,
+	iris: null,
+	pupils: null,
+
+	head_jawUp: null,
+	head_jawDown: null,
+	head_jawLeft: null,
+	head_jawRight: null,
+
+	head_L_mouthCornerUp: null,
+	head_L_mouthCornerDown: null,
+	head_L_mouthCornerIn: null,
+	head_L_mouthCornerOut: null,
+
+	head_R_mouthCornerUp: null,
+	head_R_mouthCornerDown: null,
+	head_R_mouthCornerIn: null,
+	head_R_mouthCornerOut: null,
+
+	head_L_upperLidUp: null,
+	head_L_upperLidDown: null,
+
+	head_R_upperLidUp: null,
+	head_R_upperLidDown: null,
+
+	head_L_lowerLidUp: null,
+	head_L_lowerLidDown: null,
+
+	head_R_lowerLidUp: null,
+	head_R_lowerLidDown: null,
+
+	head_L_browUp: null,
+	head_L_browDown: null,
+	head_L_browIn: null,
+	head_L_browOut: null,
+
+	brows_L_browUp: null,
+	brows_L_browDown: null,
+	brows_L_browIn: null,
+	brows_L_browOut: null,
