@@ -51,3 +51,57 @@ var meshes = {
 	brows_L_browDown: null,
 	brows_L_browIn: null,
 	brows_L_browOut: null,
+
+        head_R_browUp: null,
+	head_R_browDown: null,
+	head_R_browIn: null,
+	head_R_browOut: null,
+
+	brows_R_browUp: null,
+	brows_R_browDown: null,
+	brows_R_browIn: null,
+	brows_R_browOut: null,
+
+	head_L_cheeksUp: null,
+	head_L_cheeksDown: null,
+	head_L_cheeksIn: null,
+	head_L_cheeksOut: null,
+
+	head_R_cheeksUp: null,
+	head_R_cheeksDown: null,
+	head_R_cheeksIn: null,
+	head_R_cheeksOut: null,
+
+	head_upperLipsUp: null,
+	head_upperLipsDown: null,
+	head_upperLipsLeft: null,
+	head_upperLipsRight: null,
+
+	head_lowerLipsUp: null,
+	head_lowerLipsDown: null,
+	head_lowerLipsLeft: null,
+	head_lowerLipsRight: null
+};
+
+function preload() {
+	myFont = loadFont('Roboto-Black.ttf');
+	
+	// Procedurally load in obj files.
+	for (let name in meshes) {
+		meshes[name] = loadModel(name + '.obj');
+	}
+}
+
+function setup() {
+	canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+	
+	ortho(-width / 2, width / 2, -height / 2, height / 2, 0, 1000);
+	
+	background(50);
+	textFont(myFont);
+	
+	// Determine which meshes will be blending to targets.
+	blendMeshes.normal = new BlendMesh(meshes.normal);
+	blendMeshes.brows = new BlendMesh(meshes.brows);
+	
+	// Create controls that will drive the mesh.
