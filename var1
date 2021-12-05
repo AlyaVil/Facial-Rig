@@ -105,3 +105,49 @@ function setup() {
 	blendMeshes.brows = new BlendMesh(meshes.brows);
 	
 	// Create controls that will drive the mesh.
+
+
+
+	// Jaw control
+	controls.push(
+		new Control(
+			45, 105, 15,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_jawUp, 
+					meshes.head_jawDown, 
+					meshes.head_jawLeft, 
+					meshes.head_jawRight
+				)
+			]
+		));
+	
+	// L corner mouth control
+	controls.push(
+		new Control(
+			70, 65, 10,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_L_mouthCornerUp, 
+					meshes.head_L_mouthCornerDown, 
+					meshes.head_L_mouthCornerOut, 
+					meshes.head_L_mouthCornerIn)
+			]
+		));
+	
+	// R corner mouth control
+	controls.push(
+		new Control(
+			10, 65, 10,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_R_mouthCornerUp, 
+					meshes.head_R_mouthCornerDown, 
+					meshes.head_R_mouthCornerIn, 
+					meshes.head_R_mouthCornerOut
+				)
+			]
+		));
