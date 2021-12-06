@@ -151,3 +151,63 @@ function setup() {
 				)
 			]
 		));
+// R corner mouth control
+	controls.push(
+		new Control(
+			10, 65, 10,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_R_mouthCornerUp, 
+					meshes.head_R_mouthCornerDown, 
+					meshes.head_R_mouthCornerIn, 
+					meshes.head_R_mouthCornerOut
+				)
+			]
+		));
+	
+	// L upper eyelid control
+	controls.push(
+		new Control(
+			75, -28, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_L_upperLidUp, 
+					meshes.head_L_upperLidDown, 
+					null, 
+					null
+				)
+			]
+		));
+	
+	// R upper eyelid control
+	controls.push(
+		new Control(
+			0, -28, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_R_upperLidUp, 
+					meshes.head_R_upperLidDown, 
+					null, 
+					null
+				)
+			]
+		));
+	
+	// L lower eyelid control
+	controls.push(
+		new Control(
+			75, 12, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_L_lowerLidUp, 
+					meshes.head_L_lowerLidDown, 
+					null, 
+					null
+				)
+			]
+		));
+	
