@@ -210,4 +210,54 @@ function setup() {
 				)
 			]
 		));
+	// R brow control
+	controls.push(
+		new Control(
+			0, -50, 10,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_R_browUp, 
+					meshes.head_R_browDown, 
+					meshes.head_R_browOut, 
+					meshes.head_R_browIn
+				),
+				new TargetGroup(
+					blendMeshes.brows, 
+					meshes.brows_R_browUp, 
+					meshes.brows_R_browDown, 
+					meshes.brows_R_browOut, 
+					meshes.brows_R_browIn
+				)
+			]
+		));
 	
+	// L cheeks control
+	controls.push(
+		new Control(
+			90, 40, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_L_cheeksUp, 
+					meshes.head_L_cheeksDown, 
+					meshes.head_L_cheeksOut, 
+					meshes.head_L_cheeksIn
+				)
+			]
+		));
+	
+	// R cheeks control
+	controls.push(
+		new Control(
+			-20, 40, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_R_cheeksUp, 
+					meshes.head_R_cheeksDown, 
+					meshes.head_R_cheeksIn, 
+					meshes.head_R_cheeksOut
+				)
+			]
+		));
