@@ -261,3 +261,60 @@ function setup() {
 				)
 			]
 		));
+	// Upper lips control
+	controls.push(
+		new Control(
+			45, 55, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_upperLipsUp, 
+					meshes.head_upperLipsDown, 
+					meshes.head_upperLipsLeft, 
+					meshes.head_upperLipsRight
+				)
+			]
+		));
+	
+	// Lower lips control
+	controls.push(
+		new Control(
+			45, 80, 8,
+			[
+				new TargetGroup(
+					blendMeshes.normal, 
+					meshes.head_lowerLipsUp, 
+					meshes.head_lowerLipsDown, 
+					meshes.head_lowerLipsLeft, 
+					meshes.head_lowerLipsRight
+				)
+			]
+		));
+}
+
+function draw() {
+  background(50);
+	
+	strokeWeight(1);
+	
+	if (drawEdges) {
+		stroke(25);
+	} else {
+		noStroke();
+	}
+	
+	lights();
+	
+	fill(255);
+	textAlign(CENTER);
+	text(`
+	Drag the control points to pose the face
+	Press space to toggle edges (slow playback!)
+	Press any other key to toggle controls display`, 
+			 0, height / 2 - 80);
+	
+	push();
+	translate(0, 50);
+	scale(100);
+	rotateX(radians(180));
+	rotateY(radians(160));
