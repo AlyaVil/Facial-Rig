@@ -318,3 +318,53 @@ function draw() {
 	scale(100);
 	rotateX(radians(180));
 	rotateY(radians(160));
+
+blendMeshToTargets();
+	
+	for (let blendMesh of Object.values(blendMeshes)) {
+		blendMesh.refreshMesh();
+	}
+	
+	displayMeshes();
+	pop();
+	
+	for (let control of controls) {
+		control.slideControl();
+		if (drawControls) {
+			control.display();
+		}
+	}
+}
+
+function displayMeshes() {
+	ambientLight(50);
+	directionalLight(80, 80, 80, -0.6, 0.55, -1);
+	directionalLight(200, 50, 50, 0.2, -0.48, 0.5);
+	
+	ambientMaterial(180, 125, 110);
+  model(blendMeshes.normal.mesh);
+	
+	ambientMaterial(75, 60, 50);
+	model(blendMeshes.brows.mesh);
+	model(meshes.hair);
+	
+	ambientMaterial(255, 255, 255);
+	model(meshes.eyes);
+	
+	ambientMaterial(155, 208, 235);
+	model(meshes.iris);
+	
+	ambientMaterial(0, 0, 0);
+	model(meshes.pupils);
+}
+
+// Maps the verts to their targets based on the controls' offset.
+function blendMeshToTargets() {
+	for (let control of controls) {
+		control.storeOutputs();
+	}
+	
+	for (let blendMesh of Object.values(blendMeshes)) {
+		for (let vertIndex = 0; vertIndex < blendMesh.mesh.vertices.length; vertIndex++) {
+			// Reset vert to default pose.
+			blendMesh.resetPoint(vertIndex);
