@@ -368,3 +368,45 @@ function blendMeshToTargets() {
 		for (let vertIndex = 0; vertIndex < blendMesh.mesh.vertices.length; vertIndex++) {
 			// Reset vert to default pose.
 			blendMesh.resetPoint(vertIndex);
+
+// Add on all deltas to verts.
+			for (let control of controls) {
+				for (let targetGroup of control.targetGroups) {
+					if (blendMesh.mesh == targetGroup.blendMesh.mesh) {
+						if (targetGroup.yawTarget != null) {
+							targetGroup.blendMesh.addDelta(targetGroup.yawTarget, control.outputs.x, vertIndex);
+						}
+
+						if (targetGroup.pitchTarget != null) {
+							targetGroup.blendMesh.addDelta(targetGroup.pitchTarget, control.outputs.y, vertIndex);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+function keyPressed() {
+	if (key == ' ') {
+		drawEdges = !drawEdges;
+	} else {
+		drawControls = !drawControls;
+	}
+}
+
+function mousePressed() {
+	// Activate control the mouse is hovering over.
+	for (let control of controls) {
+		if (control.isHoverOver()) {
+			control.active = true;
+			break;
+		}
+	}
+}
+
+function mouseReleased() {
+	for (let control of controls) {
+		control.active = false;
+	}
+}
